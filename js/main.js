@@ -1,285 +1,302 @@
-/* ============================================================
-   ALG — Main Application Logic
-   Navbar · Mobile menu · Loader · Tabs · Slider · Form
-   ============================================================ */
-
+/* ══════════════════════════════════════════════════════════════
+   American Logistics Group — Main Script (single, lightweight)
+   Nav · reveals · counters · tabs · slider · form
+   No dependencies. Deferred. ~5KB.
+   ══════════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
 
-  /* ── Loader ─────────────────────────────────────────────────── */
-  (function initLoader() {
-    const loader = document.getElementById('loader');
-    const fill   = document.getElementById('loader-fill');
-    if (!loader) return;
+  const $  = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress += Math.random() * 18 + 8;
-      if (progress >= 100) {
-        progress = 100;
-        clearInterval(interval);
-        setTimeout(() => loader.classList.add('hidden'), 300);
+  /* ───────── 1. Sticky navbar on scroll ───────── */
+  const navbar = $('#navbar');
+  const onScroll = () => {
+    if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 20);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ───────── 2. Mobile menu ───────── */
+  const toggle = $('#nav-toggle');
+  const menu = $('#nav-menu');
+  let backdrop = null;
+
+  function setMenu(open) {
+    if (!menu || !toggle) return;
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+    if (open) {
+      if (!backdrop) {
+        backdrop = document.createElement('div');
+        backdrop.className = 'nav-backdrop';
+        backdrop.addEventListener('click', () => setMenu(false));
+        document.body.appendChild(backdrop);
       }
-      if (fill) fill.style.width = Math.min(progress, 100) + '%';
-    }, 80);
-
-    // Force hide after 3s regardless
-    setTimeout(() => loader.classList.add('hidden'), 3000);
-  })();
-
-  /* ── Navbar ─────────────────────────────────────────────────── */
-  (function initNavbar() {
-    const navbar   = document.getElementById('navbar');
-    const toggle   = document.getElementById('nav-toggle');
-    const menu     = document.getElementById('nav-menu');
-    if (!navbar || !toggle || !menu) return;
-
-    // Scroll state handled by GSAP ScrollTrigger in scroll-animations.js
-    // Fallback if GSAP not loaded
-    if (typeof ScrollTrigger === 'undefined') {
-      window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 80);
-      }, { passive: true });
+      requestAnimationFrame(() => backdrop.classList.add('show'));
+    } else if (backdrop) {
+      backdrop.classList.remove('show');
     }
+  }
 
-    // Mobile menu toggle
-    toggle.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+  if (toggle) {
+    toggle.addEventListener('click', () =>
+      setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  }
+  if (menu) {
+    menu.addEventListener('click', (e) => {
+      if (e.target.closest('a')) setMenu(false);
     });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenu(false);
+  });
+  // Close menu if resized up to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) setMenu(false);
+  });
 
-    // Close on nav link click
-    menu.querySelectorAll('.nav-link, .btn').forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
-      });
-    });
+  /* ───────── 3. Active nav link via scroll spy ───────── */
+  const navLinks = $$('.nav-link');
+  const spyMap = navLinks
+    .map((a) => {
+      const id = a.getAttribute('href');
+      return id && id.startsWith('#') ? { a, sec: $(id) } : null;
+    })
+    .filter((x) => x && x.sec);
 
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (menu.classList.contains('open') && !navbar.contains(e.target)) {
-        menu.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        toggle.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
-        toggle.focus();
-      }
-    });
-  })();
-
-  /* ── Active nav link on scroll ──────────────────────────────── */
-  (function initActiveNav() {
-    const sections = document.querySelectorAll('section[id]');
-    const links    = document.querySelectorAll('.nav-link');
-    if (!sections.length || !links.length) return;
-
-    const observer = new IntersectionObserver(
+  if (spyMap.length && 'IntersectionObserver' in window) {
+    const spyObs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const id = entry.target.id;
-          links.forEach((link) => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            const id = '#' + en.target.id;
+            navLinks.forEach((a) =>
+              a.classList.toggle('active', a.getAttribute('href') === id));
+          }
         });
       },
-      { rootMargin: '-40% 0px -55% 0px' }
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
     );
+    spyMap.forEach(({ sec }) => spyObs.observe(sec));
+  }
 
-    sections.forEach((s) => observer.observe(s));
-  })();
+  /* ───────── 4. Reveal on scroll ───────── */
+  const reveals = $$('[data-r]');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach((el) => el.classList.add('in'));
+  } else {
+    const revObs = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add('in');
+            obs.unobserve(en.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.12 }
+    );
+    reveals.forEach((el) => revObs.observe(el));
+  }
 
-  /* ── Technology Tabs ─────────────────────────────────────────── */
-  (function initTabs() {
-    const tabBtns   = document.querySelectorAll('.tab-btn');
-    const tabPanes  = document.querySelectorAll('.tab-pane');
-    if (!tabBtns.length) return;
+  /* ───────── 5. Animated counters ───────── */
+  function formatNum(val, compact) {
+    if (compact) {
+      if (val >= 1000) {
+        const k = val / 1000;
+        return (k % 1 === 0 ? k.toFixed(0) : k.toFixed(0)) + 'K';
+      }
+    }
+    return Math.round(val).toLocaleString('en-US');
+  }
 
+  function runCounter(el) {
+    const target = parseFloat(el.dataset.count) || 0;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const compact = el.hasAttribute('data-compact');
+    if (reduceMotion) {
+      el.textContent = prefix + formatNum(target, compact) + suffix;
+      return;
+    }
+    const dur = 1600;
+    const start = performance.now();
+    function frame(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      el.textContent = prefix + formatNum(target * eased, compact) + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+      else el.textContent = prefix + formatNum(target, compact) + suffix;
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const counters = $$('.hstat-num[data-count]');
+  if (counters.length) {
+    if (!('IntersectionObserver' in window)) {
+      counters.forEach(runCounter);
+    } else {
+      const cObs = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((en) => {
+            if (en.isIntersecting) {
+              runCounter(en.target);
+              obs.unobserve(en.target);
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+      counters.forEach((c) => cObs.observe(c));
+    }
+  }
+
+  /* ───────── 6. Technology tabs ───────── */
+  const tabBtns = $$('.tab-btn');
+  if (tabBtns.length) {
     tabBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const target = btn.dataset.tab;
-
+        const pane = $('#tab-' + btn.dataset.tab);
         tabBtns.forEach((b) => {
           b.classList.remove('active');
           b.setAttribute('aria-selected', 'false');
         });
-        tabPanes.forEach((p) => p.classList.remove('active'));
-
+        $$('.tab-pane').forEach((p) => p.classList.remove('active'));
         btn.classList.add('active');
         btn.setAttribute('aria-selected', 'true');
-
-        const pane = document.getElementById('tab-' + target);
         if (pane) pane.classList.add('active');
       });
     });
-  })();
+  }
 
-  /* ── Testimonials Slider ─────────────────────────────────────── */
-  (function initSlider() {
-    const track  = document.getElementById('testimonials-track');
-    const prev   = document.getElementById('slider-prev');
-    const next   = document.getElementById('slider-next');
-    const dotsEl = document.getElementById('slider-dots');
-    if (!track || !prev || !next) return;
+  /* ───────── 7. Testimonial slider ───────── */
+  const track = $('#slider-track');
+  if (track) {
+    const slides = $$('.quote', track);
+    const dotsWrap = $('#slider-dots');
+    const prev = $('#slider-prev');
+    const next = $('#slider-next');
+    let idx = 0;
+    let timer = null;
 
-    const cards     = track.querySelectorAll('.testimonial-card');
-    const count     = cards.length;
-    let   current   = 0;
-    let   autoTimer = null;
-
-    // Build dots
-    const dots = [];
-    cards.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className  = 'slider-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      dot.addEventListener('click', () => goTo(i));
-      dotsEl.appendChild(dot);
-      dots.push(dot);
+    // dots
+    const dots = slides.map((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      d.addEventListener('click', () => go(i, true));
+      dotsWrap && dotsWrap.appendChild(d);
+      return d;
     });
 
-    function goTo(index) {
-      current = (index + count) % count;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    function go(i, user) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(' + -idx * 100 + '%)';
+      dots.forEach((d, n) => d.classList.toggle('active', n === idx));
+      if (user) restart();
+    }
+    function start() {
+      if (reduceMotion || slides.length < 2) return;
+      timer = setInterval(() => go(idx + 1), 6000);
+    }
+    function restart() {
+      clearInterval(timer);
+      start();
     }
 
-    prev.addEventListener('click', () => { resetAuto(); goTo(current - 1); });
-    next.addEventListener('click', () => { resetAuto(); goTo(current + 1); });
+    prev && prev.addEventListener('click', () => go(idx - 1, true));
+    next && next.addEventListener('click', () => go(idx + 1, true));
 
-    // Auto-advance
-    function resetAuto() {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(() => goTo(current + 1), 5000);
+    // swipe
+    let sx = 0;
+    const vp = $('.slider-viewport') || track;
+    vp.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; }, { passive: true });
+    vp.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 45) go(idx + (dx < 0 ? 1 : -1), true);
+    }, { passive: true });
+
+    // pause on hover
+    const sliderEl = $('.slider');
+    if (sliderEl) {
+      sliderEl.addEventListener('mouseenter', () => clearInterval(timer));
+      sliderEl.addEventListener('mouseleave', start);
+    }
+    start();
+  }
+
+  /* ───────── 8. Contact form (client-side) ───────── */
+  const form = $('#contact-form');
+  if (form) {
+    const success = $('#form-success');
+
+    function showError(group, msg) {
+      group.classList.add('invalid');
+      let er = group.querySelector('.ferror');
+      if (!er) {
+        er = document.createElement('p');
+        er.className = 'ferror';
+        group.appendChild(er);
+      }
+      er.textContent = msg;
+    }
+    function clearError(group) {
+      group.classList.remove('invalid');
+      const er = group.querySelector('.ferror');
+      if (er) er.textContent = '';
     }
 
-    resetAuto();
-
-    // Touch swipe
-    let touchStartX = 0;
-    track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', (e) => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) {
-        resetAuto();
-        goTo(diff > 0 ? current + 1 : current - 1);
-      }
-    });
-
-    // Keyboard
-    document.addEventListener('keydown', (e) => {
-      if (document.activeElement.closest('#testimonials')) {
-        if (e.key === 'ArrowLeft')  { resetAuto(); goTo(current - 1); }
-        if (e.key === 'ArrowRight') { resetAuto(); goTo(current + 1); }
-      }
-    });
-  })();
-
-  /* ── Contact Form ─────────────────────────────────────────────── */
-  (function initForm() {
-    const form    = document.getElementById('contact-form');
-    const success = document.getElementById('form-success');
-    if (!form) return;
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      let ok = true;
 
-      // Basic validation
-      let valid = true;
-      form.querySelectorAll('[required]').forEach((field) => {
-        const empty = !field.value.trim();
-        field.style.borderColor = empty ? '#ff4444' : '';
-        if (empty) valid = false;
-      });
+      const name = $('#name'), email = $('#email'), msg = $('#message');
 
-      if (!valid) return;
+      [name, email, msg].forEach((f) => clearError(f.closest('.fgroup')));
 
-      // Simulate form submission (replace with real endpoint)
-      const btn = form.querySelector('[type="submit"]');
-      btn.disabled    = true;
+      if (!name.value.trim()) { showError(name.closest('.fgroup'), 'Please enter your name.'); ok = false; }
+      if (!emailRe.test(email.value.trim())) { showError(email.closest('.fgroup'), 'Enter a valid email address.'); ok = false; }
+      if (msg.value.trim().length < 10) { showError(msg.closest('.fgroup'), 'Please tell us a bit more (10+ characters).'); ok = false; }
+
+      if (!ok) {
+        const firstBad = form.querySelector('.fgroup.invalid input, .fgroup.invalid textarea');
+        firstBad && firstBad.focus();
+        return;
+      }
+
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn.innerHTML;
+      btn.disabled = true;
       btn.textContent = 'Sending…';
 
+      // Simulated async submit (no backend on a static host)
       setTimeout(() => {
+        form.querySelectorAll('input, select, textarea').forEach((el) => (el.value = ''));
+        btn.disabled = false;
+        btn.innerHTML = original;
         if (success) {
           success.hidden = false;
-          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+          setTimeout(() => { success.hidden = true; }, 6000);
         }
-        form.reset();
-        btn.disabled    = false;
-        btn.innerHTML   = 'Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>';
-      }, 1400);
+      }, 900);
     });
 
-    // Live field validation feedback
-    form.querySelectorAll('[required]').forEach((field) => {
-      field.addEventListener('blur', () => {
-        field.style.borderColor = field.value.trim() ? '' : '#ff4444';
-      });
-      field.addEventListener('input', () => {
-        if (field.value.trim()) field.style.borderColor = '';
-      });
+    // live clear on input
+    form.addEventListener('input', (e) => {
+      const g = e.target.closest('.fgroup');
+      if (g && g.classList.contains('invalid')) clearError(g);
     });
-  })();
+  }
 
-  /* ── Smooth scroll for anchor links ─────────────────────────── */
-  (function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener('click', (e) => {
-        const targetId = link.getAttribute('href').slice(1);
-        if (!targetId) return;
-        const target = document.getElementById(targetId);
-        if (!target) return;
-        e.preventDefault();
-
-        if (window.algLenis) {
-          window.algLenis.scrollTo(target, { offset: -80, duration: 1.4 });
-        } else {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  })();
-
-  /* ── Reveal observer fallback (if GSAP not loaded) ───────────── */
-  (function initRevealFallback() {
-    if (typeof gsap !== 'undefined') return; // GSAP handles it
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            observer.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    document.querySelectorAll(
-      '.reveal-up, .reveal-left, .reveal-right, .stat-card, .service-card, .team-card'
-    ).forEach((el) => observer.observe(el));
-  })();
-
-  /* ── Prevent FOUC on nav active link ────────────────────────── */
-  document.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('mouseenter', () => link.style.opacity = '1');
-    link.addEventListener('mouseleave', () => link.style.opacity = '');
-  });
+  /* ───────── 9. Footer year (safety) ───────── */
+  // (Year is hardcoded in markup; nothing to do.)
 
 })();

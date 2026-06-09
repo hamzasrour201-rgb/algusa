@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#0A1628" />
 
   <!-- SEO -->
-  <title>American Logistics Group LLC — Premier 3PL &amp; Freight Brokerage Services</title>
-  <meta name="description" content="American Logistics Group LLC is a federally regulated, bonded freight broker and 3PL provider since 2006. FTL, LTL, Intermodal, Drayage &amp; Hazmat shipping across the US and Canada." />
-  <meta name="keywords" content="freight broker, 3PL, logistics, FTL, LTL, intermodal, drayage, hazmat, trucking, American Logistics Group, ALG, New York" />
-  <link rel="canonical" href="https://algusa.com/" />
+  <title>American Logistics Group LLC — Premier 3PL &amp; Freight Brokerage</title>
+  <meta name="description" content="American Logistics Group LLC is a federally regulated, bonded freight broker and 3PL provider since 2006. FTL, LTL, Intermodal, Drayage &amp; Hazmat shipping across the US and Canada. 100,000+ loads moved, $5B shipped." />
+  <meta name="keywords" content="freight broker, 3PL, logistics, FTL, LTL, intermodal, drayage, hazmat, trucking, American Logistics Group, ALG" />
+  <link rel="canonical" href="https://algusa.vercel.app/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="American Logistics Group LLC — Premier 3PL &amp; Freight Brokerage" />
   <meta property="og:description" content="Federally regulated freight broker since 2006. 100,000+ loads shipped, $5 billion in products moved." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80" />
-  <meta property="og:url" content="https://algusa.com" />
+  <meta property="og:url" content="https://algusa.vercel.app" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@AmericanLogist5" />
 
-  <!-- Schema.org LocalBusiness -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,7 +28,7 @@
     "alternateName": "ALG",
     "description": "Federally regulated freight broker and 3PL provider since 2006",
     "foundingDate": "2006",
-    "url": "https://algusa.com",
+    "url": "https://algusa.vercel.app",
     "telephone": ["+17163375000", "+15168740909"],
     "email": "info@algusa.com",
     "address": {
@@ -49,842 +48,624 @@
   }
   </script>
 
-  <!-- Preconnect / Preload critical assets -->
+  <!-- Preconnect / Preload -->
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preload" as="image" fetchpriority="high"
-        href="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&q=75&fm=webp&auto=format&fit=crop" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Icons (loaded async so they never block first paint) -->
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" /></noscript>
+  <link rel="preload" as="image" fetchpriority="high"
+        href="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1500&q=72&fm=webp&auto=format&fit=crop" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css?v=9" />
-  <link rel="stylesheet" href="css/animations.css?v=9" />
-  <link rel="stylesheet" href="css/responsive.css?v=9" />
+  <link rel="stylesheet" href="css/style.css?v=11" />
+  <link rel="stylesheet" href="css/animations.css?v=11" />
+  <link rel="stylesheet" href="css/responsive.css?v=11" />
 </head>
 <body>
 
-  <!-- Grain overlay -->
-  <div class="grain" aria-hidden="true"></div>
+  <!-- ══════════ Inline SVG icon sprite (no external icon CDN) ══════════ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-l" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M1 4h13v12H1zM14 8h4l4 4v4h-8M5.5 19a2 2 0 100-4 2 2 0 000 4zM18.5 19a2 2 0 100-4 2 2 0 000 4z"/></symbol>
+      <symbol id="i-boxes" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 8l4-2 4 2v4l-4 2-4-2zM13 8l4-2 4 2v4l-4 2-4-2zM8 16l4-2 4 2v4l-4 2-4-2z"/></symbol>
+      <symbol id="i-train" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 3h14v12a3 3 0 01-3 3H8a3 3 0 01-3-3zM5 10h14M9 18l-2 3M15 18l2 3M9.5 14h.01M14.5 14h.01"/></symbol>
+      <symbol id="i-anchor" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 8v13M5 12a7 7 0 0014 0M3 12h3M18 12h3M12 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></symbol>
+      <symbol id="i-hazmat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2l9 16H3zM12 9v4M12 16h.01"/></symbol>
+      <symbol id="i-road" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 21L8 3M20 21L16 3M12 4v2M12 10v3M12 17v3"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4zM4 6l8 6 8-6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0zM12 11a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5zM9 12l2 2 4-4"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 22a10 10 0 100-20 10 10 0 000 20zM12 7v5l3 2"/></symbol>
+      <symbol id="i-route" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M6 19a2 2 0 100-4 2 2 0 000 4zM18 9a2 2 0 100-4 2 2 0 000 4zM8 7h6a3 3 0 013 3v0a3 3 0 01-3 3H8a3 3 0 00-3 3v0"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 15l3-4 3 2 5-7"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 14v-2a8 8 0 0116 0v2M4 14a2 2 0 012 2v2a2 2 0 01-2 2 2 2 0 01-2-2v-2a2 2 0 012-2zM20 14a2 2 0 00-2 2v2a2 2 0 002 2 2 2 0 002-2v-2a2 2 0 00-2-2z"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 002.48 2.5A2.5 2.5 0 007.5 6 2.5 2.5 0 004.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-3-1.8-3s-2 1.4-2 2.9V21H9z"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.300c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></symbol>
+      <symbol id="i-twitter" viewBox="0 0 24 24"><path fill="currentColor" d="M18.9 3H22l-7.5 8.6L23 21h-6.6l-5.2-6.7L5.2 21H2l8-9.2L1.5 3h6.8l4.7 6.2zm-1.2 16h1.8L7.1 4.8H5.2z"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 22a10 10 0 100-20 10 10 0 000 20zM2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></symbol>
+    </defs>
+  </svg>
 
-  <!-- Loader -->
-  <div id="loader" aria-hidden="true">
-    <div class="loader-inner">
-      <div class="loader-logo"><span class="logo-mark">▲</span>ALG</div>
-      <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
-      <p class="loader-label">Initializing Experience</p>
-    </div>
-  </div>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- ═══════════════════════════════════════ NAVBAR ═════════════════════════════════════════ -->
-  <nav id="navbar" role="navigation" aria-label="Main Navigation">
-    <div class="nav-container">
-      <a href="#" class="nav-logo" aria-label="American Logistics Group — Home">
-        <span class="logo-mark" aria-hidden="true">▲</span>
-        <span class="logo-text">ALG</span>
+  <!-- ══════════════════════ NAVBAR ══════════════════════ -->
+  <header id="navbar" class="navbar">
+    <div class="nav-inner">
+      <a href="#top" class="brand" aria-label="American Logistics Group — Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 2l13 26h-8l-5-10-5 10H3z"/></svg>
+        </span>
+        <span class="brand-text">ALG<span class="brand-dot">.</span></span>
       </a>
 
-      <div class="nav-menu" id="nav-menu" role="menubar">
-        <ul class="nav-links" role="none">
-          <li role="none"><a href="#about"         class="nav-link" role="menuitem">Company</a></li>
-          <li role="none"><a href="#services"      class="nav-link" role="menuitem">Services</a></li>
-          <li role="none"><a href="#offerings"     class="nav-link" role="menuitem">Solutions</a></li>
-          <li role="none"><a href="#technology"    class="nav-link" role="menuitem">Resources</a></li>
-          <li role="none"><a href="#team"          class="nav-link" role="menuitem">About</a></li>
-        </ul>
-        <div class="nav-actions">
-          <a href="tel:+17163375000" class="nav-phone" aria-label="Call +1 716-337-5000">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      <nav class="nav-links" id="nav-menu" aria-label="Primary">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#solutions" class="nav-link">Solutions</a>
+        <a href="#technology" class="nav-link">Technology</a>
+        <a href="#process" class="nav-link">How It Works</a>
+        <a href="#team" class="nav-link">Company</a>
+        <div class="nav-cta">
+          <a href="tel:+17163375000" class="nav-phone">
+            <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>
+            +1 716-337-5000
           </a>
-          <a href="#contact" class="btn btn-ghost btn-sm">Sign In</a>
           <a href="#contact" class="btn btn-primary btn-sm">Request a Quote</a>
         </div>
-      </div>
-
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ═══════════════════════════════════════ HERO ══════════════════════════════════════════ -->
-  <!--
-    CINEMATIC HERO — 4 scroll-driven scenes
-    Total height: 400vh · Sticky inner panel: 100vh
-    Scene transitions controlled by GSAP ScrollTrigger onUpdate
-  -->
-  <section id="hero" class="hero-cinematic" aria-label="Hero — American Logistics Group">
-    <div class="hero-pin" id="hero-pin">
-
-      <!-- ────── SCENE 1 · Golden-hour yard ──────────────────── -->
-      <div class="scene scene-1" id="scene-1">
-        <div class="scene-bg"
-             style="background-image:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&q=75&fm=webp&auto=format&fit=crop')"
-             aria-hidden="true"></div>
-        <div class="scene-overlay" aria-hidden="true"></div>
-        <div class="scene-content">
-          <p class="scene-label">◆ &nbsp;American Logistics Group &nbsp;·&nbsp; Since 2006</p>
-          <h1 class="scene-headline">Logistics,<br />reimagined.</h1>
-          <p class="scene-sub">Federally regulated 3PL &amp; freight brokerage.<br />100,000+ loads moved. $5 billion shipped.</p>
-        </div>
-      </div>
-
-      <!-- ────── SCENE 2 · Technology scanner ────────────────── -->
-      <div class="scene scene-2" id="scene-2">
-        <div class="scene-bg"
-             style="background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=75&fm=webp&auto=format&fit=crop')"
-             aria-hidden="true"></div>
-        <div class="scene-overlay scene-overlay-dark" aria-hidden="true"></div>
-
-        <!-- Wireframe scanner overlay -->
-        <div class="wireframe-wrap" aria-hidden="true">
-          <svg class="wireframe-svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <!-- Grid lines -->
-            <line x1="0" y1="225" x2="1600" y2="225" stroke="rgba(0,220,255,0.15)" stroke-width="1"/>
-            <line x1="0" y1="450" x2="1600" y2="450" stroke="rgba(0,220,255,0.10)" stroke-width="1"/>
-            <line x1="0" y1="675" x2="1600" y2="675" stroke="rgba(0,220,255,0.15)" stroke-width="1"/>
-            <line x1="400"  y1="0" x2="400"  y2="900" stroke="rgba(0,220,255,0.10)" stroke-width="1"/>
-            <line x1="800"  y1="0" x2="800"  y2="900" stroke="rgba(0,220,255,0.07)" stroke-width="1"/>
-            <line x1="1200" y1="0" x2="1200" y2="900" stroke="rgba(0,220,255,0.10)" stroke-width="1"/>
-            <!-- Corner brackets -->
-            <polyline points="110,80 110,170 200,170"  stroke="rgba(0,220,255,0.85)" stroke-width="2.5" fill="none"/>
-            <polyline points="1490,80 1490,170 1400,170" stroke="rgba(0,220,255,0.85)" stroke-width="2.5" fill="none"/>
-            <polyline points="110,820 110,730 200,730" stroke="rgba(0,220,255,0.85)" stroke-width="2.5" fill="none"/>
-            <polyline points="1490,820 1490,730 1400,730" stroke="rgba(0,220,255,0.85)" stroke-width="2.5" fill="none"/>
-            <!-- Targeting circle -->
-            <circle cx="800" cy="450" r="65"  stroke="rgba(0,220,255,0.75)" stroke-width="1.5" fill="none"/>
-            <circle cx="800" cy="450" r="100" stroke="rgba(0,220,255,0.25)" stroke-width="1"   fill="none" stroke-dasharray="6 8"/>
-            <!-- Crosshair -->
-            <line x1="715" y1="450" x2="755" y2="450" stroke="rgba(0,220,255,0.85)" stroke-width="1.5"/>
-            <line x1="845" y1="450" x2="885" y2="450" stroke="rgba(0,220,255,0.85)" stroke-width="1.5"/>
-            <line x1="800" y1="365" x2="800" y2="405" stroke="rgba(0,220,255,0.85)" stroke-width="1.5"/>
-            <line x1="800" y1="495" x2="800" y2="535" stroke="rgba(0,220,255,0.85)" stroke-width="1.5"/>
-            <!-- Data readout labels -->
-            <text x="205" y="165" font-family="monospace" font-size="11" fill="rgba(0,220,255,0.7)">LAT: 40.7891°N</text>
-            <text x="205" y="182" font-family="monospace" font-size="11" fill="rgba(0,220,255,0.5)">LON: 73.4085°W</text>
-            <text x="1160" y="165" font-family="monospace" font-size="11" fill="rgba(0,220,255,0.7)" text-anchor="end">FREQ: 8x8 COMM</text>
-            <text x="1160" y="182" font-family="monospace" font-size="11" fill="rgba(0,220,255,0.5)" text-anchor="end">SYS: ALJEX TMS</text>
-          </svg>
-          <div class="scan-sweep" aria-hidden="true"></div>
-        </div>
-
-        <div class="scene-content">
-          <p class="scene-label">Powered by Industry-Leading Technology</p>
-          <h2 class="scene-headline">AI-driven workflows.<br />Gate to dock.</h2>
-          <p class="scene-sub">Aljex TMS &nbsp;·&nbsp; Truckstop Diamond &nbsp;·&nbsp; DAT Power &nbsp;·&nbsp; SaferWatch</p>
-        </div>
-      </div>
-
-      <!-- ────── SCENE 3 · Cream · "Imagine the yard as…" ────── -->
-      <div class="scene scene-3 scene-light" id="scene-3">
-        <div class="scene-content scene-content-left">
-          <p class="scene-3-label">The ALG Promise</p>
-          <div class="scene-3-body">
-            <h1 class="scene-3-line">Imagine the yard as an</h1>
-            <h1 class="scene-3-line">engine, seamlessly</h1>
-            <h1 class="scene-3-line">connecting every mile.</h1>
-          </div>
-        </div>
-      </div>
-
-      <!-- ────── SCENE 4 · Final dark sunset + CTA ───────────── -->
-      <div class="scene scene-4" id="scene-4">
-        <div class="scene-bg"
-             style="background-image:url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1920&q=75&fm=webp&auto=format&fit=crop')"
-             aria-hidden="true"></div>
-        <div class="scene-overlay" aria-hidden="true"></div>
-        <div class="scene-content">
-          <h2 class="scene-headline">We have reinvented<br />the future of logistics.</h2>
-          <div class="scene-4-actions">
-            <a href="#contact" class="btn btn-primary btn-lg">
-              Request A Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-            </a>
-            <a href="#services" class="btn btn-ghost btn-lg">Explore Services</a>
-          </div>
-          <div class="scene-4-stats" aria-label="Key statistics">
-            <div class="s4-stat"><span class="s4-num">10+</span><span class="s4-lbl">Years</span></div>
-            <div class="s4-sep"></div>
-            <div class="s4-stat"><span class="s4-num">100K+</span><span class="s4-lbl">Loads Shipped</span></div>
-            <div class="s4-sep"></div>
-            <div class="s4-stat"><span class="s4-num">$5B</span><span class="s4-lbl">Products Moved</span></div>
-            <div class="s4-sep"></div>
-            <div class="s4-stat"><span class="s4-num">5K+</span><span class="s4-lbl">Clients</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scene progress dots (right rail) -->
-      <nav class="scene-dots" aria-label="Scene indicator" id="scene-dots">
-        <button class="scene-dot active" data-target-scene="0" aria-label="Scene 1: Overview"></button>
-        <button class="scene-dot"        data-target-scene="1" aria-label="Scene 2: Technology"></button>
-        <button class="scene-dot"        data-target-scene="2" aria-label="Scene 3: Vision"></button>
-        <button class="scene-dot"        data-target-scene="3" aria-label="Scene 4: Get Started"></button>
       </nav>
 
-      <!-- Scroll hint (fades on first scroll) -->
-      <div class="hero-scroll-hint" id="hero-scroll-hint" aria-hidden="true">
-        <div class="scroll-pulse-line"></div>
-        <span>Scroll to explore</span>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg class="ic ic-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="ic ic-close" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+  <span id="top"></span>
+
+  <!-- ══════════════════════ HERO ══════════════════════ -->
+  <section class="hero" aria-label="American Logistics Group">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1500&q=72&fm=webp&auto=format&fit=crop"
+           alt="" fetchpriority="high" width="1500" height="1000" />
+      <div class="hero-veil"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+    </div>
+
+    <div class="container hero-inner">
+      <p class="eyebrow reveal" data-r>
+        <span class="eyebrow-dot"></span>
+        Federally Regulated &amp; Bonded · Since 2006
+      </p>
+      <h1 class="hero-title reveal" data-r data-d="1">
+        Freight, moved with<br /><span class="grad">precision &amp; speed.</span>
+      </h1>
+      <p class="hero-sub reveal" data-r data-d="2">
+        American Logistics Group is a federally regulated 3PL and freight brokerage
+        delivering FTL, LTL, Intermodal, Drayage &amp; Hazmat shipping across the US and Canada —
+        powered by industry-leading technology and a team that never sleeps.
+      </p>
+      <div class="hero-actions reveal" data-r data-d="3">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          Request a Quote <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost btn-lg">Explore Services</a>
       </div>
 
-    </div><!-- /hero-pin -->
-  </section>
+      <div class="hero-stats reveal" data-r data-d="4">
+        <div class="hstat"><span class="hstat-num" data-count="10" data-suffix="+">0</span><span class="hstat-lbl">Years</span></div>
+        <div class="hstat"><span class="hstat-num" data-count="100000" data-suffix="+" data-compact>0</span><span class="hstat-lbl">Loads Shipped</span></div>
+        <div class="hstat"><span class="hstat-num" data-prefix="$" data-count="5" data-suffix="B">0</span><span class="hstat-lbl">Products Moved</span></div>
+        <div class="hstat"><span class="hstat-num" data-count="5000" data-suffix="+" data-compact>0</span><span class="hstat-lbl">Clients</span></div>
+      </div>
+    </div>
 
-  <!-- ═══════════════════════════════════════ STATS ═════════════════════════════════════════ -->
-  <section id="stats" class="stats-section" aria-label="Key Statistics">
-    <div class="section-container">
-      <div class="stats-grid">
-
-        <div class="stat-card" data-stat>
-          <div class="stat-number" aria-live="polite">
-            <span class="counter" data-target="10" data-duration="2">0</span>
-            <span class="stat-suffix">+</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <p class="stat-label-text">Years satisfying customers</p>
-        </div>
-
-        <div class="stat-card" data-stat>
-          <div class="stat-number" aria-live="polite">
-            <span class="counter" data-target="100000" data-duration="2.5" data-format="compact">0</span>
-            <span class="stat-suffix">+</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <p class="stat-label-text">Loads shipped</p>
-        </div>
-
-        <div class="stat-card" data-stat>
-          <div class="stat-number" aria-live="polite">
-            <span class="stat-prefix">$</span>
-            <span class="counter" data-target="5" data-duration="2">0</span>
-            <span class="stat-suffix"> Billion</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <p class="stat-label-text">Shipped in products</p>
-        </div>
-
-        <div class="stat-card" data-stat>
-          <div class="stat-number" aria-live="polite">
-            <span class="counter" data-target="5000" data-duration="2.2" data-format="compact">0</span>
-            <span class="stat-suffix">+</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <p class="stat-label-text">Satisfied &amp; happy customers</p>
-        </div>
-
+    <div class="trust-strip" aria-label="Certifications">
+      <div class="container trust-inner">
+        <span class="trust-label">Trusted &amp; Certified</span>
+        <ul class="trust-logos">
+          <li>IANA</li><li>TIA</li><li>Blue Book</li><li>CargoNet</li><li>Verisk</li><li>FMCSA</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ ABOUT ═════════════════════════════════════════ -->
-  <section id="about" class="about-section" aria-label="About American Logistics Group">
-    <div class="section-container">
-      <div class="about-grid">
+  <!-- ══════════════════════ SERVICES ══════════════════════ -->
+  <section id="services" class="section">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">What We Move</p>
+        <h2 class="h2">Four modes. <span class="grad">One network.</span></h2>
+        <p class="lead">Freight solutions engineered to optimize every link of your supply chain — coast to coast, border to border.</p>
+      </header>
 
-        <div class="about-content reveal-left">
-          <p class="section-label">Who We Are</p>
-          <h2 class="section-heading">Federally regulated.<br /><span class="text-accent">Industry trusted.</span></h2>
-          <p class="section-body">
-            Since 2006, American Logistics Group LLC has been a federally regulated and bonded
-            freight broker, delivering comprehensive logistics solutions across the United States
-            and Canada. With top-tier ratings from IANA, TIA, and Blue Book, we've earned the
-            trust of 5,000+ clients through unwavering reliability and deep industry expertise.
-          </p>
-          <ul class="about-features">
-            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Federal regulation &amp; full bonding</li>
-            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> IANA &amp; TIA top-tier member ratings</li>
-            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> 100,000+ successful load deliveries</li>
-            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Dedicated account management</li>
-          </ul>
-          <a href="#services" class="btn btn-ghost btn-inline">
-            Explore Our Services <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="about-visual reveal-right">
-          <div class="about-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80&auto=format&fit=crop"
-              alt="ALG semi-truck on a US highway at sunset"
-              loading="lazy" decoding="async" width="900" height="600"
-            />
-            <div class="img-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="about-badge-float" aria-hidden="true">
-            <span class="badge-year">Est.</span>
-            <span class="badge-num">2006</span>
-          </div>
-        </div>
-
+      <div class="grid-4">
+        <article class="card reveal" data-r>
+          <span class="card-ic"><svg class="ic" aria-hidden="true"><use href="#i-truck"/></svg></span>
+          <p class="card-tag">FTL</p>
+          <h3 class="card-title">Full Truckload</h3>
+          <p class="card-text">Dedicated trailer solutions for full volumes. Faster transit, minimal handling, complete cargo control.</p>
+          <a href="#contact" class="card-link">Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="card reveal" data-r data-d="1">
+          <span class="card-ic"><svg class="ic" aria-hidden="true"><use href="#i-boxes"/></svg></span>
+          <p class="card-tag">LTL</p>
+          <h3 class="card-title">Less Than Truckload</h3>
+          <p class="card-text">Cost-effective partial shipping. Pay only for the space you use — without compromising reliability.</p>
+          <a href="#contact" class="card-link">Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="card reveal" data-r data-d="2">
+          <span class="card-ic"><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg></span>
+          <p class="card-tag">Rail + Road</p>
+          <h3 class="card-title">Intermodal</h3>
+          <p class="card-text">Combine rail and truck for maximum efficiency. Lower costs, reduced emissions, superior scalability.</p>
+          <a href="#contact" class="card-link">Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="card reveal" data-r data-d="3">
+          <span class="card-ic"><svg class="ic" aria-hidden="true"><use href="#i-anchor"/></svg></span>
+          <p class="card-tag">Port Moves</p>
+          <h3 class="card-title">Drayage</h3>
+          <p class="card-text">Precision short-haul container transport from ports, terminals, and rail yards to your warehouse.</p>
+          <a href="#contact" class="card-link">Learn more <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ SERVICES ══════════════════════════════════════ -->
-  <section id="services" class="services-section" aria-label="Our Service Modes">
-    <div class="section-container">
+  <!-- ══════════════════════ SOLUTIONS ══════════════════════ -->
+  <section id="solutions" class="section section-alt">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">Full Spectrum</p>
+        <h2 class="h2">Solutions for <span class="grad">every shipment.</span></h2>
+      </header>
 
-      <div class="section-header">
-        <p class="section-label">What We Move</p>
-        <h2 class="section-heading">Our <span class="text-accent">Modes</span></h2>
-        <p class="section-sub">Four powerful freight solutions engineered to optimize every link of your supply chain.</p>
-      </div>
-
-      <div class="services-grid">
-
-        <article class="service-card reveal-up" style="--delay:0s">
-          <div class="service-icon-wrap" aria-hidden="true">
-            <i class="fa-solid fa-truck-moving"></i>
+      <div class="grid-4 sol-grid">
+        <article class="sol reveal" data-r>
+          <div class="sol-img"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=640&q=70&fm=webp&auto=format&fit=crop" alt="Over the road trucking" loading="lazy" decoding="async" width="640" height="420" /><span class="sol-ic"><svg class="ic" aria-hidden="true"><use href="#i-road"/></svg></span></div>
+          <div class="sol-body">
+            <p class="card-tag">OTR</p>
+            <h3 class="card-title">Over The Road</h3>
+            <p class="card-text">Coast-to-coast coverage, on time every time, backed by our expert team.</p>
           </div>
-          <p class="service-abbr">FTL</p>
-          <h3 class="service-title">Full Truck Load</h3>
-          <p class="service-desc">Dedicated trailer solutions for full shipment volumes. Faster transit times, minimal handling, complete cargo control.</p>
-          <a href="#contact" class="service-link" aria-label="Learn more about Full Truck Load">Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          <div class="card-glow" aria-hidden="true"></div>
         </article>
-
-        <article class="service-card reveal-up" style="--delay:0.1s">
-          <div class="service-icon-wrap" aria-hidden="true">
-            <i class="fa-solid fa-boxes-stacked"></i>
+        <article class="sol reveal" data-r data-d="1">
+          <div class="sol-img"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=640&q=70&fm=webp&auto=format&fit=crop" alt="Container drayage at port" loading="lazy" decoding="async" width="640" height="420" /><span class="sol-ic"><svg class="ic" aria-hidden="true"><use href="#i-anchor"/></svg></span></div>
+          <div class="sol-body">
+            <p class="card-tag">Drayage</p>
+            <h3 class="card-title">Container Drayage</h3>
+            <p class="card-text">Efficient moves from ports, rail terminals, and DCs. Fast, managed, fully insured.</p>
           </div>
-          <p class="service-abbr">LTL</p>
-          <h3 class="service-title">Less Than Truckload</h3>
-          <p class="service-desc">Cost-effective partial shipping for smaller loads. Pay only for the space you use — no compromises on reliability.</p>
-          <a href="#contact" class="service-link" aria-label="Learn more about LTL">Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          <div class="card-glow" aria-hidden="true"></div>
         </article>
-
-        <article class="service-card reveal-up" style="--delay:0.2s">
-          <div class="service-icon-wrap" aria-hidden="true">
-            <i class="fa-solid fa-train"></i>
+        <article class="sol reveal" data-r data-d="2">
+          <div class="sol-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=70&fm=webp&auto=format&fit=crop" alt="Intermodal rail freight" loading="lazy" decoding="async" width="640" height="420" /><span class="sol-ic"><svg class="ic" aria-hidden="true"><use href="#i-train"/></svg></span></div>
+          <div class="sol-body">
+            <p class="card-tag">Intermodal</p>
+            <h3 class="card-title">Rail &amp; Road</h3>
+            <p class="card-text">Combined transport power — lower costs, lower emissions, higher efficiency.</p>
           </div>
-          <p class="service-abbr">RAIL + ROAD</p>
-          <h3 class="service-title">Intermodal Services</h3>
-          <p class="service-desc">Combine rail and truck transport for maximum efficiency. Lower costs, reduced emissions, superior scalability.</p>
-          <a href="#contact" class="service-link" aria-label="Learn more about Intermodal">Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          <div class="card-glow" aria-hidden="true"></div>
         </article>
-
-        <article class="service-card reveal-up" style="--delay:0.3s">
-          <div class="service-icon-wrap" aria-hidden="true">
-            <i class="fa-solid fa-anchor"></i>
+        <article class="sol reveal" data-r data-d="3">
+          <div class="sol-img"><img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=640&q=70&fm=webp&auto=format&fit=crop" alt="Hazmat freight shipping" loading="lazy" decoding="async" width="640" height="420" /><span class="sol-ic"><svg class="ic" aria-hidden="true"><use href="#i-hazmat"/></svg></span></div>
+          <div class="sol-body">
+            <p class="card-tag">Hazmat</p>
+            <h3 class="card-title">Hazmat Shipping</h3>
+            <p class="card-text">Fully compliant transport of hazardous materials. Safety-first, certified carriers.</p>
           </div>
-          <p class="service-abbr">PORT MOVES</p>
-          <h3 class="service-title">Drayage Services</h3>
-          <p class="service-desc">Precision short-distance container transport from ports, terminals, and rail yards to your warehouse.</p>
-          <a href="#contact" class="service-link" aria-label="Learn more about Drayage">Learn more <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          <div class="card-glow" aria-hidden="true"></div>
         </article>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ OFFERINGS ════════════════════════════════════ -->
-  <section id="offerings" class="offerings-section" aria-label="What We Offer">
-    <div class="section-container">
-      <div class="section-header">
-        <p class="section-label">Full Spectrum</p>
-        <h2 class="section-heading">What We <span class="text-accent">Offer</span></h2>
+  <!-- ══════════════════════ ABOUT ══════════════════════ -->
+  <section id="about" class="section">
+    <div class="container split">
+      <div class="split-text reveal" data-r>
+        <p class="label">Who We Are</p>
+        <h2 class="h2">Federally regulated.<br /><span class="grad">Industry trusted.</span></h2>
+        <p class="lead">
+          Since 2006, American Logistics Group LLC has been a federally regulated and bonded freight broker,
+          delivering comprehensive logistics solutions across the United States and Canada. With top-tier
+          ratings from IANA, TIA, and Blue Book, we've earned the trust of 5,000+ clients.
+        </p>
+        <ul class="ticks">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Federal regulation &amp; full bonding</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> IANA &amp; TIA top-tier member ratings</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> 100,000+ successful load deliveries</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Dedicated account management</li>
+        </ul>
+        <a href="#services" class="btn btn-ghost">Explore Our Services <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-    </div>
-
-    <div class="offerings-wrapper">
-      <div class="offerings-track" id="offerings-track">
-
-        <article class="offering-card">
-          <div class="offering-img">
-            <img
-              src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=700&q=80&auto=format&fit=crop"
-              alt="Over The Road trucking on US highway"
-              loading="lazy" decoding="async" width="700" height="467"
-            />
-            <div class="offering-img-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="offering-body">
-            <p class="offering-tag">OTR</p>
-            <h3 class="offering-title">Over The Road Services</h3>
-            <p class="offering-desc">Promising supply chain solutions matching your need, on time every time. Comprehensive coast-to-coast coverage backed by our expert team.</p>
-            <a href="#contact" class="offering-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </article>
-
-        <article class="offering-card">
-          <div class="offering-img">
-            <img
-              src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=700&q=80&auto=format&fit=crop"
-              alt="Container yard at a port for Drayage services"
-              loading="lazy" decoding="async" width="700" height="467"
-            />
-            <div class="offering-img-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="offering-body">
-            <p class="offering-tag">DRAYAGE</p>
-            <h3 class="offering-title">Drayage Services</h3>
-            <p class="offering-desc">Efficient container moves from ports, rail terminals, and distribution centers. Fast, professionally managed, fully insured.</p>
-            <a href="#contact" class="offering-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </article>
-
-        <article class="offering-card">
-          <div class="offering-img">
-            <img
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&auto=format&fit=crop"
-              alt="Intermodal rail freight transport containers"
-              loading="lazy" decoding="async" width="700" height="467"
-            />
-            <div class="offering-img-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="offering-body">
-            <p class="offering-tag">INTERMODAL</p>
-            <h3 class="offering-title">Intermodal Services</h3>
-            <p class="offering-desc">Leverage the combined power of rail and road transport. Lower costs, lower emissions, higher efficiency across the network.</p>
-            <a href="#contact" class="offering-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </article>
-
-        <article class="offering-card">
-          <div class="offering-img">
-            <img
-              src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=700&q=80&auto=format&fit=crop"
-              alt="Hazardous materials freight shipping services"
-              loading="lazy" decoding="async" width="700" height="467"
-            />
-            <div class="offering-img-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="offering-body">
-            <p class="offering-tag">HAZMAT</p>
-            <h3 class="offering-title">Hazmat Shipping Services</h3>
-            <p class="offering-desc">Hassle-free, fully compliant transportation of hazardous materials. Safety-first protocols, certified carriers, zero compromise.</p>
-            <a href="#contact" class="offering-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ TECHNOLOGY ════════════════════════════════════ -->
-  <section id="technology" class="tech-section" aria-label="Technology Stack">
-    <div class="section-container">
-      <div class="tech-inner">
-
-        <div class="tech-header reveal-left">
-          <p class="section-label">Our Edge</p>
-          <h2 class="section-heading">Powered by<br /><span class="text-accent">Industry-Leading</span><br />Software</h2>
-          <p class="section-body">We leverage the best logistics technology to deliver real-time visibility, smarter routing, and seamless communication at every step.</p>
+      <div class="split-visual reveal" data-r data-d="1">
+        <div class="visual-frame">
+          <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=820&q=72&fm=webp&auto=format&fit=crop" alt="ALG semi-truck on a US highway at sunset" loading="lazy" decoding="async" width="820" height="560" />
         </div>
-
-        <div class="tech-tabs reveal-right">
-          <div class="tech-tab-btns" role="tablist" aria-label="Technology tabs">
-            <button class="tab-btn active" role="tab" data-tab="aljex"      aria-selected="true"  aria-controls="tab-aljex">Aljex TMS</button>
-            <button class="tab-btn"        role="tab" data-tab="truckstop"  aria-selected="false" aria-controls="tab-truckstop">Truckstop</button>
-            <button class="tab-btn"        role="tab" data-tab="dat"        aria-selected="false" aria-controls="tab-dat">DAT Power</button>
-            <button class="tab-btn"        role="tab" data-tab="saferwatch" aria-selected="false" aria-controls="tab-saferwatch">SaferWatch</button>
-            <button class="tab-btn"        role="tab" data-tab="comm"       aria-selected="false" aria-controls="tab-comm">8x8 Work</button>
-            <button class="tab-btn"        role="tab" data-tab="bluebook"   aria-selected="false" aria-controls="tab-bluebook">Blue Book</button>
-          </div>
-
-          <div class="tech-tab-content">
-            <div class="tab-pane active" id="tab-aljex" role="tabpanel">
-              <h3>Aljex TMS</h3>
-              <p>Our Transportation Management System provides end-to-end load management, real-time tracking, automated billing, and carrier compliance monitoring — all from one powerful platform.</p>
-              <ul><li>Real-time load tracking &amp; visibility</li><li>Automated carrier payments</li><li>EDI integration</li><li>Advanced reporting &amp; analytics</li></ul>
-            </div>
-            <div class="tab-pane" id="tab-truckstop" role="tabpanel">
-              <h3>Truckstop Diamond Broker</h3>
-              <p>As a Diamond-rated broker on Truckstop, we access the nation's largest freight marketplace — connecting us with thousands of verified carriers for optimal load matching at competitive rates.</p>
-              <ul><li>Diamond broker status</li><li>Access to 300,000+ carriers</li><li>Rate intelligence tools</li><li>Carrier verification system</li></ul>
-            </div>
-            <div class="tab-pane" id="tab-dat" role="tabpanel">
-              <h3>DAT Power Freight Analytics</h3>
-              <p>DAT Power provides unparalleled market intelligence — freight rate benchmarking, capacity analysis, and lane-by-lane data to optimize the economics of every shipment we handle.</p>
-              <ul><li>Market rate benchmarking</li><li>Load-to-truck ratio data</li><li>Lane-specific analysis</li><li>Historical trend intelligence</li></ul>
-            </div>
-            <div class="tab-pane" id="tab-saferwatch" role="tabpanel">
-              <h3>SaferWatch</h3>
-              <p>SaferWatch enables us to instantly verify carrier safety records, insurance certificates, operating authority, and compliance status — ensuring your freight is always in trusted hands.</p>
-              <ul><li>FMCSA data monitoring</li><li>Insurance verification</li><li>Safety score tracking</li><li>Automated compliance alerts</li></ul>
-            </div>
-            <div class="tab-pane" id="tab-comm" role="tabpanel">
-              <h3>8x8 Work Cloud Communications</h3>
-              <p>8x8 Work keeps our team connected with clients and carriers through HD voice, video conferencing, team messaging, and an integrated contact center — 24/7 responsive service.</p>
-              <ul><li>HD cloud calling</li><li>Video conferencing</li><li>Team messaging platform</li><li>Contact center integration</li></ul>
-            </div>
-            <div class="tab-pane" id="tab-bluebook" role="tabpanel">
-              <h3>Blue Book Services</h3>
-              <p>Blue Book membership certifies our financial integrity and industry standing — providing verified ratings that signal trust to carriers, shippers, and partners across the supply chain.</p>
-              <ul><li>Industry credentialing</li><li>Payment performance ratings</li><li>Business reputation reports</li><li>Dispute resolution support</li></ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════ CERTIFICATIONS ════════════════════════════════ -->
-  <section id="certifications" class="certs-section" aria-label="Certifications and Memberships">
-    <div class="section-container">
-      <div class="section-header">
-        <p class="section-label">Recognition</p>
-        <h2 class="section-heading">Certified.<br /><span class="text-accent">Industry Verified.</span></h2>
-      </div>
-    </div>
-
-    <div class="certs-carousel-wrap">
-      <div class="certs-carousel" aria-label="Certification and membership logos">
-        <div class="certs-track" id="certs-track">
-          <div class="cert-item"><div class="cert-logo">IANA</div><span>Intermodal Assoc. of North America</span></div>
-          <div class="cert-item"><div class="cert-logo">TIA</div><span>Transportation Intermediaries Assoc.</span></div>
-          <div class="cert-item"><div class="cert-logo">Blue<br/>Book</div><span>Blue Book Services</span></div>
-          <div class="cert-item"><div class="cert-logo">T&amp;LC</div><span>Transport &amp; Logistics Counsel</span></div>
-          <div class="cert-item"><div class="cert-logo">Cargo<br/>Net</div><span>CargoNet</span></div>
-          <div class="cert-item"><div class="cert-logo">Verisk</div><span>Verisk Analytics</span></div>
-          <!-- Duplicates for infinite scroll -->
-          <div class="cert-item" aria-hidden="true"><div class="cert-logo">IANA</div><span>Intermodal Assoc. of North America</span></div>
-          <div class="cert-item" aria-hidden="true"><div class="cert-logo">TIA</div><span>Transportation Intermediaries Assoc.</span></div>
-          <div class="cert-item" aria-hidden="true"><div class="cert-logo">Blue<br/>Book</div><span>Blue Book Services</span></div>
-          <div class="cert-item" aria-hidden="true"><div class="cert-logo">T&amp;LC</div><span>Transport &amp; Logistics Counsel</span></div>
-          <div class="cert-item" aria-hidden="true"><div class="cert-logo">Cargo<br/>Net</div><span>CargoNet</span></div>
-          <div class="cert-item" aria-hidden="true"><div class="cert-logo">Verisk</div><span>Verisk Analytics</span></div>
+        <div class="float-badge">
+          <span class="fb-top">Est.</span>
+          <span class="fb-num">2006</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ TESTIMONIALS ══════════════════════════════════ -->
-  <section id="testimonials" class="testimonials-section" aria-label="Client Testimonials">
-    <div class="section-container">
-      <div class="section-header">
-        <p class="section-label">Client Voices</p>
-        <h2 class="section-heading">What Our <span class="text-accent">Clients Say</span></h2>
-      </div>
+  <!-- ══════════════════════ TECHNOLOGY ══════════════════════ -->
+  <section id="technology" class="section section-alt">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">Our Edge</p>
+        <h2 class="h2">Powered by <span class="grad">industry-leading software.</span></h2>
+        <p class="lead">Real-time visibility, smarter routing, and seamless communication at every step.</p>
+      </header>
 
-      <div class="testimonials-container" id="testimonials-container">
-        <div class="testimonials-track" id="testimonials-track">
-
-          <div class="testimonial-card">
-            <div class="quote-mark" aria-hidden="true">"</div>
-            <p class="testimonial-text">ALG has consistently provided a professional experience from first call to final delivery. Their team is responsive, their processes are seamless, and the results are exceptional.</p>
-            <div class="testimonial-footer">
-              <div class="author-avatar" aria-hidden="true">EM</div>
-              <div class="author-meta">
-                <strong>Edward McLamb</strong>
-                <span>Businessman</span>
-              </div>
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="quote-mark" aria-hidden="true">"</div>
-            <p class="testimonial-text">100% efficient every single time. ALG handles our regular freight with precision and always delivers on their promises. I wouldn't trust anyone else.</p>
-            <div class="testimonial-footer">
-              <div class="author-avatar" aria-hidden="true">UM</div>
-              <div class="author-meta">
-                <strong>Ujala Manandhar</strong>
-                <span>Regular Customer</span>
-              </div>
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="quote-mark" aria-hidden="true">"</div>
-            <p class="testimonial-text">They delivered our fragile shipment safely and on time, every time. The care they take with sensitive cargo is unmatched in the industry — truly world class.</p>
-            <div class="testimonial-footer">
-              <div class="author-avatar" aria-hidden="true">JB</div>
-              <div class="author-meta">
-                <strong>John Ballard</strong>
-                <span>Regular Customer</span>
-              </div>
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="quote-mark" aria-hidden="true">"</div>
-            <p class="testimonial-text">Six years of partnership and counting. ALG has become an integral part of our transport operation — reliable, transparent, and consistently ahead of schedule.</p>
-            <div class="testimonial-footer">
-              <div class="author-avatar" aria-hidden="true">GT</div>
-              <div class="author-meta">
-                <strong>George Turner</strong>
-                <span>Transport Supervisor</span>
-              </div>
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-            </div>
-          </div>
-
+      <div class="tabs reveal" data-r>
+        <div class="tab-btns" role="tablist" aria-label="Technology platforms">
+          <button class="tab-btn active" role="tab" data-tab="aljex" aria-selected="true">Aljex TMS</button>
+          <button class="tab-btn" role="tab" data-tab="truckstop" aria-selected="false">Truckstop</button>
+          <button class="tab-btn" role="tab" data-tab="dat" aria-selected="false">DAT Power</button>
+          <button class="tab-btn" role="tab" data-tab="saferwatch" aria-selected="false">SaferWatch</button>
+          <button class="tab-btn" role="tab" data-tab="comm" aria-selected="false">8x8 Work</button>
+          <button class="tab-btn" role="tab" data-tab="bluebook" aria-selected="false">Blue Book</button>
         </div>
+        <div class="tab-body">
+          <div class="tab-pane active" id="tab-aljex" role="tabpanel">
+            <h3>Aljex TMS</h3>
+            <p>End-to-end load management, real-time tracking, automated billing, and carrier compliance monitoring — all from one powerful platform.</p>
+            <ul class="pane-list"><li>Real-time load tracking &amp; visibility</li><li>Automated carrier payments</li><li>EDI integration</li><li>Advanced reporting &amp; analytics</li></ul>
+          </div>
+          <div class="tab-pane" id="tab-truckstop" role="tabpanel">
+            <h3>Truckstop Diamond Broker</h3>
+            <p>As a Diamond-rated broker, we access the nation's largest freight marketplace — connecting with thousands of verified carriers for optimal matching.</p>
+            <ul class="pane-list"><li>Diamond broker status</li><li>Access to 300,000+ carriers</li><li>Rate intelligence tools</li><li>Carrier verification system</li></ul>
+          </div>
+          <div class="tab-pane" id="tab-dat" role="tabpanel">
+            <h3>DAT Power Freight Analytics</h3>
+            <p>Unparalleled market intelligence — freight rate benchmarking, capacity analysis, and lane-by-lane data to optimize every shipment.</p>
+            <ul class="pane-list"><li>Market rate benchmarking</li><li>Load-to-truck ratio data</li><li>Lane-specific analysis</li><li>Historical trend intelligence</li></ul>
+          </div>
+          <div class="tab-pane" id="tab-saferwatch" role="tabpanel">
+            <h3>SaferWatch</h3>
+            <p>Instantly verify carrier safety records, insurance certificates, operating authority, and compliance status — your freight in trusted hands.</p>
+            <ul class="pane-list"><li>FMCSA data monitoring</li><li>Insurance verification</li><li>Safety score tracking</li><li>Automated compliance alerts</li></ul>
+          </div>
+          <div class="tab-pane" id="tab-comm" role="tabpanel">
+            <h3>8x8 Work Cloud Communications</h3>
+            <p>HD voice, video conferencing, team messaging, and an integrated contact center — 24/7 responsive service.</p>
+            <ul class="pane-list"><li>HD cloud calling</li><li>Video conferencing</li><li>Team messaging platform</li><li>Contact center integration</li></ul>
+          </div>
+          <div class="tab-pane" id="tab-bluebook" role="tabpanel">
+            <h3>Blue Book Services</h3>
+            <p>Membership certifies our financial integrity and industry standing — verified ratings that signal trust across the supply chain.</p>
+            <ul class="pane-list"><li>Industry credentialing</li><li>Payment performance ratings</li><li>Business reputation reports</li><li>Dispute resolution support</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="slider-controls" aria-label="Testimonial slider navigation">
-          <button class="slider-btn" id="slider-prev" aria-label="Previous testimonial">
-            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-          </button>
+  <!-- ══════════════════════ PROCESS ══════════════════════ -->
+  <section id="process" class="section">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">How It Works</p>
+        <h2 class="h2">From quote to <span class="grad">delivered.</span></h2>
+        <p class="lead">A transparent, four-step process that keeps you informed at every mile.</p>
+      </header>
+
+      <ol class="steps">
+        <li class="step reveal" data-r>
+          <span class="step-no">01</span>
+          <span class="step-ic"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg></span>
+          <h3>Get a Quote</h3>
+          <p>Share your lane and freight details. We benchmark live market rates and respond fast with a competitive quote.</p>
+        </li>
+        <li class="step reveal" data-r data-d="1">
+          <span class="step-no">02</span>
+          <span class="step-ic"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3>Carrier Match</h3>
+          <p>We match your load to a vetted, fully compliant carrier — verified through SaferWatch and FMCSA monitoring.</p>
+        </li>
+        <li class="step reveal" data-r data-d="2">
+          <span class="step-no">03</span>
+          <span class="step-ic"><svg class="ic" aria-hidden="true"><use href="#i-route"/></svg></span>
+          <h3>Track in Real Time</h3>
+          <p>Live visibility from gate to dock through our Aljex TMS, with proactive updates the whole way.</p>
+        </li>
+        <li class="step reveal" data-r data-d="3">
+          <span class="step-no">04</span>
+          <span class="step-ic"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <h3>Delivered &amp; Billed</h3>
+          <p>On-time delivery, proof of delivery, and clean automated billing. Simple, transparent, reliable.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ WHY ALG ══════════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">Why ALG</p>
+        <h2 class="h2">The difference is in <span class="grad">the details.</span></h2>
+      </header>
+      <div class="grid-3">
+        <div class="feature reveal" data-r>
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <h3>24/7 Operations</h3>
+          <p>A responsive team monitoring your freight around the clock — because supply chains never stop.</p>
+        </div>
+        <div class="feature reveal" data-r data-d="1">
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3>Vetted Carriers Only</h3>
+          <p>Every carrier is verified for authority, insurance, and safety before they ever touch your load.</p>
+        </div>
+        <div class="feature reveal" data-r data-d="2">
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg></span>
+          <h3>US &amp; Canada Coverage</h3>
+          <p>A nationwide network across two countries, with capacity for any lane, season, or surge.</p>
+        </div>
+        <div class="feature reveal" data-r>
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-headset"/></svg></span>
+          <h3>Dedicated Reps</h3>
+          <p>One point of contact who knows your business — not a ticket queue or a call center.</p>
+        </div>
+        <div class="feature reveal" data-r data-d="1">
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg></span>
+          <h3>Data-Driven Rates</h3>
+          <p>DAT Power benchmarking ensures you always get a fair, market-accurate price.</p>
+        </div>
+        <div class="feature reveal" data-r data-d="2">
+          <span class="feature-ic"><svg class="ic" aria-hidden="true"><use href="#i-route"/></svg></span>
+          <h3>End-to-End Visibility</h3>
+          <p>Real-time tracking and proactive communication from pickup to proof of delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ CERTIFICATIONS ══════════════════════ -->
+  <section id="certifications" class="section section-tight">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">Recognition</p>
+        <h2 class="h2">Certified &amp; <span class="grad">industry verified.</span></h2>
+      </header>
+    </div>
+    <div class="marquee" aria-label="Certifications and memberships">
+      <div class="marquee-track">
+        <span class="cert">IANA</span><span class="cert">TIA</span><span class="cert">Blue Book</span>
+        <span class="cert">T&amp;LC</span><span class="cert">CargoNet</span><span class="cert">Verisk</span>
+        <span class="cert">FMCSA</span><span class="cert">SaferWatch</span>
+        <span class="cert" aria-hidden="true">IANA</span><span class="cert" aria-hidden="true">TIA</span><span class="cert" aria-hidden="true">Blue Book</span>
+        <span class="cert" aria-hidden="true">T&amp;LC</span><span class="cert" aria-hidden="true">CargoNet</span><span class="cert" aria-hidden="true">Verisk</span>
+        <span class="cert" aria-hidden="true">FMCSA</span><span class="cert" aria-hidden="true">SaferWatch</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ TESTIMONIALS ══════════════════════ -->
+  <section id="testimonials" class="section section-alt">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">Client Voices</p>
+        <h2 class="h2">What our <span class="grad">clients say.</span></h2>
+      </header>
+
+      <div class="slider reveal" data-r>
+        <div class="slider-viewport">
+          <div class="slider-track" id="slider-track">
+            <figure class="quote">
+              <div class="stars" aria-label="5 stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
+              <blockquote>ALG has consistently provided a professional experience from first call to final delivery. Their team is responsive, their processes are seamless, and the results are exceptional.</blockquote>
+              <figcaption><span class="avatar">EM</span><span class="who"><strong>Edward McLamb</strong><span>Businessman</span></span></figcaption>
+            </figure>
+            <figure class="quote">
+              <div class="stars" aria-label="5 stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
+              <blockquote>100% efficient every single time. ALG handles our regular freight with precision and always delivers on their promises. I wouldn't trust anyone else.</blockquote>
+              <figcaption><span class="avatar">UM</span><span class="who"><strong>Ujala Manandhar</strong><span>Regular Customer</span></span></figcaption>
+            </figure>
+            <figure class="quote">
+              <div class="stars" aria-label="5 stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
+              <blockquote>They delivered our fragile shipment safely and on time, every time. The care they take with sensitive cargo is unmatched in the industry — truly world class.</blockquote>
+              <figcaption><span class="avatar">JB</span><span class="who"><strong>John Ballard</strong><span>Regular Customer</span></span></figcaption>
+            </figure>
+            <figure class="quote">
+              <div class="stars" aria-label="5 stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
+              <blockquote>Six years of partnership and counting. ALG has become an integral part of our transport operation — reliable, transparent, and consistently ahead of schedule.</blockquote>
+              <figcaption><span class="avatar">GT</span><span class="who"><strong>George Turner</strong><span>Transport Supervisor</span></span></figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="slider-nav">
+          <button class="slider-btn" id="slider-prev" aria-label="Previous"><svg class="ic" aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
           <div class="slider-dots" id="slider-dots" role="group" aria-label="Slide indicators"></div>
-          <button class="slider-btn" id="slider-next" aria-label="Next testimonial">
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </button>
+          <button class="slider-btn" id="slider-next" aria-label="Next"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ TEAM ══════════════════════════════════════════ -->
-  <section id="team" class="team-section" aria-label="Our Leadership Team">
-    <div class="section-container">
-      <div class="section-header">
-        <p class="section-label">The People</p>
-        <h2 class="section-heading">Our <span class="text-accent">Leadership</span></h2>
-      </div>
-
-      <div class="team-grid">
-
-        <article class="team-card reveal-up" style="--delay:0s">
-          <div class="team-img">
-            <img
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=80&auto=format&fit=crop&crop=face"
-              alt="Jay Singh, Chairman of American Logistics Group"
-              loading="lazy" decoding="async" width="500" height="500"
-            />
-          </div>
-          <div class="team-info">
-            <h3 class="team-name">Jay Singh</h3>
-            <p class="team-role">Chairman</p>
-            <p class="team-bio">Serial entrepreneur with deep expertise in IT-based businesses. Visionary leader who founded ALG in 2006 and built it into a nationally recognized freight brokerage.</p>
-            <a href="#" class="team-linkedin" aria-label="Jay Singh on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+  <!-- ══════════════════════ TEAM ══════════════════════ -->
+  <section id="team" class="section">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">The People</p>
+        <h2 class="h2">Our <span class="grad">leadership.</span></h2>
+      </header>
+      <div class="grid-3">
+        <article class="member reveal" data-r>
+          <div class="member-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=480&q=72&fm=webp&auto=format&fit=crop&crop=face" alt="Jay Singh, Chairman" loading="lazy" decoding="async" width="480" height="480" /></div>
+          <div class="member-body">
+            <h3>Jay Singh</h3>
+            <p class="role">Chairman</p>
+            <p class="bio">Serial entrepreneur with deep expertise in IT-based businesses. Founded ALG in 2006 and built it into a nationally recognized freight brokerage.</p>
+            <a href="#" class="member-li" aria-label="Jay Singh on LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           </div>
         </article>
-
-        <article class="team-card reveal-up" style="--delay:0.15s">
-          <div class="team-img">
-            <img
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80&auto=format&fit=crop&crop=face"
-              alt="Parmod Lamba, Executive Director"
-              loading="lazy" decoding="async" width="500" height="500"
-            />
-          </div>
-          <div class="team-info">
-            <h3 class="team-name">Parmod Lamba</h3>
-            <p class="team-role">Executive Director</p>
-            <p class="team-bio">35+ years of logistics and operations expertise. Parmod oversees day-to-day operations, ensuring every shipment meets ALG's exacting standards of quality.</p>
-            <a href="#" class="team-linkedin" aria-label="Parmod Lamba on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <article class="member reveal" data-r data-d="1">
+          <div class="member-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=480&q=72&fm=webp&auto=format&fit=crop&crop=face" alt="Parmod Lamba, Executive Director" loading="lazy" decoding="async" width="480" height="480" /></div>
+          <div class="member-body">
+            <h3>Parmod Lamba</h3>
+            <p class="role">Executive Director</p>
+            <p class="bio">35+ years of logistics and operations expertise. Oversees day-to-day operations, ensuring every shipment meets ALG's exacting standards.</p>
+            <a href="#" class="member-li" aria-label="Parmod Lamba on LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           </div>
         </article>
-
-        <article class="team-card reveal-up" style="--delay:0.3s">
-          <div class="team-img">
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80&auto=format&fit=crop&crop=face"
-              alt="Robert L. Reeb, General Counsel"
-              loading="lazy" decoding="async" width="500" height="500"
-            />
-          </div>
-          <div class="team-info">
-            <h3 class="team-name">Robert L. Reeb</h3>
-            <p class="team-role">General Counsel (External)</p>
-            <p class="team-bio">Renowned transportation attorney providing legal oversight and regulatory compliance counsel. Ensures ALG maintains the highest legal standards industry-wide.</p>
-            <a href="#" class="team-linkedin" aria-label="Robert L. Reeb on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <article class="member reveal" data-r data-d="2">
+          <div class="member-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=480&q=72&fm=webp&auto=format&fit=crop&crop=face" alt="Robert L. Reeb, General Counsel" loading="lazy" decoding="async" width="480" height="480" /></div>
+          <div class="member-body">
+            <h3>Robert L. Reeb</h3>
+            <p class="role">General Counsel (External)</p>
+            <p class="bio">Renowned transportation attorney providing legal oversight and regulatory compliance counsel across the industry.</p>
+            <a href="#" class="member-li" aria-label="Robert L. Reeb on LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
           </div>
         </article>
-
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ CARRIER CTA ═══════════════════════════════════ -->
-  <section id="carrier-cta" class="carrier-section" aria-label="Become a Carrier or Shipper">
-    <div class="carrier-bg" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1800&q=70&auto=format&fit=crop"
-        alt=""
-        loading="lazy" width="1800" height="900"
-      />
-      <div class="carrier-overlay"></div>
+  <!-- ══════════════════════ CARRIER CTA ══════════════════════ -->
+  <section id="carrier" class="cta-band">
+    <div class="cta-bg" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1500&q=64&fm=webp&auto=format&fit=crop" alt="" loading="lazy" decoding="async" width="1500" height="760" />
+      <div class="cta-veil"></div>
     </div>
-    <div class="section-container">
-      <div class="carrier-content">
-        <p class="section-label">Join Our Network</p>
-        <h2 class="carrier-heading">Built for carriers.<br /><span class="text-accent">Trusted by thousands.</span></h2>
-        <p class="carrier-sub">Partner with ALG and access thousands of loads, competitive rates, and the support of an experienced team. Fast pay, transparent communication, real relationships.</p>
-        <div class="carrier-actions">
-          <a href="#contact" class="btn btn-primary btn-lg">Become a Carrier <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-          <a href="#contact" class="btn btn-ghost btn-lg">Ship With Us</a>
-        </div>
+    <div class="container cta-inner reveal" data-r>
+      <p class="label">Join Our Network</p>
+      <h2 class="h2">Built for carriers.<br /><span class="grad">Trusted by thousands.</span></h2>
+      <p class="lead">Access thousands of loads, competitive rates, and the support of an experienced team. Fast pay, transparent communication, real relationships.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary btn-lg">Become a Carrier <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#contact" class="btn btn-ghost btn-lg">Ship With Us</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ CONTACT ═══════════════════════════════════════ -->
-  <section id="contact" class="contact-section" aria-label="Contact Us">
-    <div class="section-container">
-      <div class="section-header">
-        <p class="section-label">Get In Touch</p>
-        <h2 class="section-heading">We want to<br /><span class="text-accent">hear from you.</span></h2>
-      </div>
+  <!-- ══════════════════════ CONTACT ══════════════════════ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <header class="head reveal" data-r>
+        <p class="label">Get In Touch</p>
+        <h2 class="h2">We want to <span class="grad">hear from you.</span></h2>
+      </header>
 
       <div class="contact-grid">
-
-        <div class="contact-info reveal-left">
-          <div class="contact-item">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
-            <div class="contact-detail">
-              <strong>Our Office</strong>
-              <span>68 S Service Rd 100<br />Melville, NY 11747, USA</span>
-            </div>
+        <div class="contact-info reveal" data-r>
+          <div class="cinfo">
+            <span class="cinfo-ic"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <div><strong>Our Office</strong><span>68 S Service Rd 100<br />Melville, NY 11747, USA</span></div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
-            <div class="contact-detail">
-              <strong>Phone</strong>
-              <a href="tel:+17163375000">+1 716-337-5000</a>
-              <a href="tel:+15168740909">+1 516-874-0909</a>
-            </div>
+          <div class="cinfo">
+            <span class="cinfo-ic"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <div><strong>Phone</strong><a href="tel:+17163375000">+1 716-337-5000</a><a href="tel:+15168740909">+1 516-874-0909</a></div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></div>
-            <div class="contact-detail">
-              <strong>Email</strong>
-              <a href="mailto:info@algusa.com">info@algusa.com</a>
-              <a href="mailto:connect@algusa.com">connect@algusa.com</a>
-              <a href="mailto:accounting@algusa.com">accounting@algusa.com</a>
-            </div>
+          <div class="cinfo">
+            <span class="cinfo-ic"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <div><strong>Email</strong><a href="mailto:info@algusa.com">info@algusa.com</a><a href="mailto:connect@algusa.com">connect@algusa.com</a></div>
           </div>
-          <div class="contact-socials">
-            <a href="#" class="social-link" aria-label="ALG on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-            <a href="#" class="social-link" aria-label="ALG on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-            <a href="https://twitter.com/AmericanLogist5" class="social-link" aria-label="ALG on Twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+          <div class="socials">
+            <a href="https://www.facebook.com/algusa" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg class="ic" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+            <a href="https://www.linkedin.com/company/algusa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+            <a href="https://twitter.com/AmericanLogist5" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="ic" aria-hidden="true"><use href="#i-twitter"/></svg></a>
           </div>
         </div>
 
-        <form class="contact-form reveal-right" id="contact-form" novalidate aria-label="Contact form">
-          <div class="form-row">
-            <div class="form-group">
+        <form class="form reveal" data-r data-d="1" id="contact-form" novalidate aria-label="Contact form">
+          <div class="frow">
+            <div class="fgroup">
               <label for="name">Full Name <span aria-hidden="true">*</span></label>
-              <input type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name" />
+              <input type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name" maxlength="80" />
             </div>
-            <div class="form-group">
+            <div class="fgroup">
               <label for="email">Email Address <span aria-hidden="true">*</span></label>
-              <input type="email" id="email" name="email" placeholder="john@company.com" required autocomplete="email" />
+              <input type="email" id="email" name="email" placeholder="john@company.com" required autocomplete="email" maxlength="120" />
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group">
+          <div class="frow">
+            <div class="fgroup">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" maxlength="32" />
             </div>
-            <div class="form-group">
-              <label for="country">Country</label>
-              <select id="country" name="country" autocomplete="country">
-                <option value="US" selected>United States</option>
-                <option value="CA">Canada</option>
-                <option value="MX">Mexico</option>
-                <option value="OTHER">Other</option>
+            <div class="fgroup">
+              <label for="service">Service</label>
+              <select id="service" name="service">
+                <option value="FTL">Full Truckload (FTL)</option>
+                <option value="LTL">Less Than Truckload (LTL)</option>
+                <option value="Intermodal">Intermodal</option>
+                <option value="Drayage">Drayage</option>
+                <option value="Hazmat">Hazmat</option>
+                <option value="Other">Other</option>
               </select>
             </div>
           </div>
-          <div class="form-group">
+          <div class="fgroup">
             <label for="message">Message <span aria-hidden="true">*</span></label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us about your shipping needs..." required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your shipping needs…" required maxlength="2000"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-full">
-            Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-          </button>
-          <p class="form-note">By submitting, you agree to our <a href="#">Privacy Policy</a>.</p>
-          <div class="form-success" id="form-success" role="alert" aria-live="polite" hidden>
-            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <button type="submit" class="btn btn-primary btn-full">Send Message <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="fnote">By submitting, you agree to our <a href="#">Privacy Policy</a>.</p>
+          <div class="form-ok" id="form-success" role="alert" aria-live="polite" hidden>
+            <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>
             Thank you! We'll be in touch within 24 hours.
           </div>
         </form>
-
       </div>
     </div>
   </section>
+  </main>
 
-  <!-- ═══════════════════════════════════════ FOOTER ════════════════════════════════════════ -->
-  <footer id="footer" class="footer" aria-label="Site Footer">
-    <div class="section-container">
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-          <a href="#" class="nav-logo" aria-label="ALG Home">
-            <span class="logo-mark" aria-hidden="true">▲</span>
-            <span class="logo-text">ALG</span>
-          </a>
-          <p class="footer-tagline">Third Party Logistics &amp;<br />Service Provider</p>
-          <p class="footer-est">Est. 2006 &nbsp;·&nbsp; Melville, NY</p>
-          <div class="footer-socials">
-            <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-            <a href="https://twitter.com/AmericanLogist5" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
-          </div>
+  <!-- ══════════════════════ FOOTER ══════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand" aria-label="ALG Home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 2l13 26h-8l-5-10-5 10H3z"/></svg></span>
+          <span class="brand-text">ALG<span class="brand-dot">.</span></span>
+        </a>
+        <p>American Logistics Group LLC — a federally regulated, bonded freight broker and 3PL provider since 2006.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/algusa" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg class="ic" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a href="https://www.linkedin.com/company/algusa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+          <a href="https://twitter.com/AmericanLogist5" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><svg class="ic" aria-hidden="true"><use href="#i-twitter"/></svg></a>
         </div>
-
-        <nav class="footer-col" aria-label="Useful Links">
-          <h4 class="footer-heading">Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About ALG</a></li>
-            <li><a href="#about">Why Choose ALG</a></li>
-            <li><a href="#carrier-cta">Become a Carrier</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
-        </nav>
-
-        <nav class="footer-col" aria-label="Services">
-          <h4 class="footer-heading">Services</h4>
-          <ul>
-            <li><a href="#offerings">OTR Services</a></li>
-            <li><a href="#services">Intermodal</a></li>
-            <li><a href="#services">Drayage</a></li>
-            <li><a href="#offerings">Hazmat Shipping</a></li>
-            <li><a href="#services">Full Truck Load</a></li>
-            <li><a href="#services">Less Than Truckload</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </nav>
-
-        <div class="footer-col footer-contact-col">
-          <h4 class="footer-heading">Contact</h4>
-          <address>
-            <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 68 S Service Rd 100,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Melville, NY 11747, USA</p>
-            <p><a href="tel:+17163375000"><i class="fa-solid fa-phone" aria-hidden="true"></i> +1 716-337-5000</a></p>
-            <p><a href="tel:+15168740909"><i class="fa-solid fa-phone" aria-hidden="true"></i> +1 516-874-0909</a></p>
-            <p><a href="mailto:info@algusa.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> info@algusa.com</a></p>
-            <p><a href="mailto:accounting@algusa.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> accounting@algusa.com</a></p>
-          </address>
-        </div>
-
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 American Logistics Group LLC. All rights reserved.</p>
-        <p class="footer-legal">American Logistics Group LLC is a federally regulated and bonded freight broker. All services subject to availability and carrier compliance.</p>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Full Truckload</a>
+        <a href="#services">Less Than Truckload</a>
+        <a href="#services">Intermodal</a>
+        <a href="#services">Drayage</a>
+        <a href="#solutions">Hazmat</a>
       </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#technology">Technology</a>
+        <a href="#process">How It Works</a>
+        <a href="#team">Leadership</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+17163375000"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> +1 716-337-5000</a>
+        <a href="tel:+15168740909"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> +1 516-874-0909</a>
+        <a href="mailto:info@algusa.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> info@algusa.com</a>
+        <span class="addr"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Melville, NY 11747, USA</span>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 American Logistics Group LLC. All rights reserved.</p>
+      <p class="legal">A federally regulated and bonded freight broker. All services subject to availability and carrier compliance.</p>
     </div>
   </footer>
 
-  <!-- ═══ CDN Libraries ═══ -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous"></script>
-
-  <!-- App Scripts — order matters -->
-  <script src="js/scroll-animations.js?v=9"></script>
-  <script src="js/counters.js?v=9"></script>
-  <script src="js/main.js?v=9"></script>
-
+  <script src="js/main.js?v=11" defer></script>
 </body>
 </html>

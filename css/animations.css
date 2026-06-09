@@ -1,224 +1,60 @@
-/* ============================================================
-   ALG — Animations & Keyframes
-   ============================================================ */
+/* ══════════════════════════════════════════════════════════════
+   American Logistics Group — Animations
+   Lightweight, GPU-friendly. Reveal-on-scroll via IntersectionObserver.
+   ══════════════════════════════════════════════════════════════ */
 
+/* ───────── Scroll reveal ───────── */
+[data-r] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+  will-change: opacity, transform;
+}
+[data-r].in {
+  opacity: 1;
+  transform: none;
+}
+/* Stagger delays */
+[data-r][data-d="1"] { transition-delay: .08s; }
+[data-r][data-d="2"] { transition-delay: .16s; }
+[data-r][data-d="3"] { transition-delay: .24s; }
+[data-r][data-d="4"] { transition-delay: .32s; }
 
-/* ── Scroll indicator line ──────────────────────────────────── */
-@keyframes scroll-line-anim {
-  0%   { opacity: 1; transform: scaleY(1) translateY(0); }
-  50%  { opacity: 0.3; transform: scaleY(0.5) translateY(10px); }
-  100% { opacity: 1; transform: scaleY(1) translateY(0); }
+/* ───────── Keyframes ───────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
 }
 
-/* ── Badge dot pulse ────────────────────────────────────────── */
-@keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 4px var(--accent); opacity: 1; }
-  50%       { box-shadow: 0 0 12px var(--accent), 0 0 20px rgba(200,255,60,0.4); opacity: 0.7; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* ── Basic fade-in ──────────────────────────────────────────── */
-@keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(0,212,255,.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(0,212,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,212,255,0); }
 }
 
-/* ── Fade up ────────────────────────────────────────────────── */
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Tab content fade ───────────────────────────────────────── */
-@keyframes tab-fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Infinite cert carousel ─────────────────────────────────── */
-@keyframes cert-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ── Float (for 3D scene fallback) ──────────────────────────── */
-@keyframes float {
+@keyframes floatY {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
+  50%      { transform: translateY(-8px); }
 }
 
-/* ── Loader bar fill ─────────────────────────────────────────── */
-@keyframes loader-progress {
-  0%   { width: 0%; }
-  30%  { width: 40%; }
-  60%  { width: 70%; }
-  90%  { width: 90%; }
-  100% { width: 100%; }
-}
+/* Float badge gentle motion */
+.float-badge { animation: floatY 5s var(--ease) infinite; }
 
-/* Hero text lines are now controlled entirely by GSAP scrub.
-   No CSS keyframes needed for them. */
-
-/* ── Shimmer (used on tech card hover) ──────────────────────── */
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-/* ── Nav toggle morph ───────────────────────────────────────── */
-.nav-toggle.open span:nth-child(1) {
-  transform: translateY(6.5px) rotate(45deg);
-}
-
-.nav-toggle.open span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.nav-toggle.open span:nth-child(3) {
-  transform: translateY(-6.5px) rotate(-45deg);
-}
-
-/* ── Hover lift (utility) ───────────────────────────────────── */
-.hover-lift {
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-}
-
-/* ── Glow text (utility) ────────────────────────────────────── */
-.glow-text {
-  text-shadow: 0 0 40px rgba(200, 255, 60, 0.4);
-}
-
-/* ── Gradient border (utility) ──────────────────────────────── */
-.gradient-border {
-  position: relative;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, var(--accent), transparent, var(--accent));
-  z-index: -1;
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.gradient-border:hover::before { opacity: 1; }
-
-/* ── Line clamp utilities ────────────────────────────────────── */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* ── Blinking cursor ─────────────────────────────────────────── */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
-/* ── Number counter flash ───────────────────────────────────── */
-.counter-flash {
-  animation: counter-flash 0.15s ease;
-}
-
-@keyframes counter-flash {
-  0%   { color: var(--text-primary); }
-  50%  { color: var(--accent); }
-  100% { color: var(--accent); }
-}
-
-/* ── Stat card entrance ──────────────────────────────────────── */
-.stat-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.stat-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.stat-card:nth-child(1) { transition-delay: 0s; }
-.stat-card:nth-child(2) { transition-delay: 0.1s; }
-.stat-card:nth-child(3) { transition-delay: 0.2s; }
-.stat-card:nth-child(4) { transition-delay: 0.3s; }
-
-/* ── Service card stagger ────────────────────────────────────── */
-.service-card {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease,
-              border-color var(--transition),
-              box-shadow var(--transition);
-}
-
-.service-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── Testimonial card appear ─────────────────────────────────── */
-.testimonials-container {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.testimonials-container.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── Team card ───────────────────────────────────────────────── */
-.team-card {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease,
-              border-color var(--transition),
-              box-shadow var(--transition),
-              transform var(--transition);
-}
-
-.team-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.team-card:nth-child(1) { transition-delay: 0s; }
-.team-card:nth-child(2) { transition-delay: 0.12s; }
-.team-card:nth-child(3) { transition-delay: 0.24s; }
-
-/* ── Section heading underline ────────────────────────────────── */
-.section-heading .text-accent {
-  position: relative;
-  display: inline-block;
-}
-
-/* ── Carrier section parallax container ────────────────────── */
-.carrier-content {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-
-.carrier-content.is-visible {
-  opacity: 1;
-  transform: translateX(0);
+/* ───────── Reduced motion ───────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-r] { opacity: 1; transform: none; }
+  .marquee-track { animation: none; }
+  .float-badge { animation: none; }
+  .eyebrow-dot { animation: none; }
 }

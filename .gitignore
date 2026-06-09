@@ -8,3 +8,11 @@ desktop.ini
 node_modules/
 .vercel/
 .cache/
+
+.vercel
+
+# Local tooling / temp
+.claude/
+gh_out.txt
+gh_err.txt
+gh_pid.txt
