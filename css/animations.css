@@ -6,8 +6,8 @@
 /* ───────── Scroll reveal ───────── */
 [data-r] {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+  transform: translateY(30px);
+  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
   will-change: opacity, transform;
 }
 [data-r].in {
@@ -15,14 +15,20 @@
   transform: none;
 }
 /* Stagger delays */
-[data-r][data-d="1"] { transition-delay: .08s; }
-[data-r][data-d="2"] { transition-delay: .16s; }
-[data-r][data-d="3"] { transition-delay: .24s; }
-[data-r][data-d="4"] { transition-delay: .32s; }
+[data-r][data-d="1"] { transition-delay: .10s; }
+[data-r][data-d="2"] { transition-delay: .20s; }
+[data-r][data-d="3"] { transition-delay: .30s; }
+[data-r][data-d="4"] { transition-delay: .40s; }
+
+/* Auto-stagger children of a revealed grid (no per-item markup needed) */
+.grid-4 [data-r].in:nth-child(1), .grid-3 [data-r].in:nth-child(1) { transition-delay: 0s; }
+.grid-4 [data-r].in:nth-child(2) { transition-delay: .08s; }
+.grid-4 [data-r].in:nth-child(3) { transition-delay: .16s; }
+.grid-4 [data-r].in:nth-child(4) { transition-delay: .24s; }
 
 /* ───────── Keyframes ───────── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: none; }
 }
 
@@ -42,8 +48,70 @@
   50%      { transform: translateY(-8px); }
 }
 
-/* Float badge gentle motion */
+/* Slow cinematic zoom on hero image */
+@keyframes kenburns {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.16); }
+}
+
+/* Drifting hero grid for depth */
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 56px 56px, 56px 56px; }
+}
+
+/* Breathing glow */
+@keyframes glowBreathe {
+  0%, 100% { opacity: .55; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.12); }
+}
+
+/* Animated gradient sweep for .grad text */
+@keyframes gradShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Button sheen sweep */
+@keyframes sheen {
+  from { transform: translateX(-140%) skewX(-18deg); }
+  to   { transform: translateX(260%)  skewX(-18deg); }
+}
+
+/* Soft fade-in for whole page on first paint */
+@keyframes pageIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ───────── Applied animations ───────── */
+body { animation: pageIn .5s ease both; }
+
 .float-badge { animation: floatY 5s var(--ease) infinite; }
+
+.hero-bg img { animation: kenburns 22s ease-out forwards; }
+.hero-grid   { animation: gridDrift 14s linear infinite; }
+.hero-glow   { animation: glowBreathe 7s var(--ease) infinite; }
+
+/* Gradient-text gets a slow living shimmer */
+.grad {
+  background-size: 220% auto;
+  animation: gradShift 9s linear infinite alternate;
+}
+
+/* Button sheen — sweeps across primary buttons on hover */
+.btn-primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn-primary::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+  transform: translateX(-140%) skewX(-18deg); z-index: -1;
+}
+.btn-primary:hover::after { animation: sheen .8s var(--ease); }
+
+/* Card / feature / step icon springs to life on hover */
+.card:hover .card-ic,
+.feature:hover .feature-ic,
+.step:hover .step-ic { animation: floatY 1.6s var(--ease) infinite; }
 
 /* ───────── Reduced motion ───────── */
 @media (prefers-reduced-motion: reduce) {
@@ -54,7 +122,13 @@
     scroll-behavior: auto !important;
   }
   [data-r] { opacity: 1; transform: none; }
-  .marquee-track { animation: none; }
-  .float-badge { animation: none; }
-  .eyebrow-dot { animation: none; }
+  .marquee-track,
+  .float-badge,
+  .eyebrow-dot,
+  .hero-bg img,
+  .hero-grid,
+  .hero-glow,
+  .grad,
+  .btn-primary::after { animation: none !important; }
+  .grad { background-size: 100% auto; }
 }
